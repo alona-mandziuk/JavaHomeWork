@@ -9,7 +9,7 @@ public class Calculator {
         Scanner scan = new Scanner(System.in);
         Double x;
         Double y;
-        Double z;
+        double z;
         char sign;
         System.out.println("Enter two numbers:");
         x = scan.nextDouble();
@@ -27,10 +27,9 @@ switch(sign) {
         z = x * y;
         break;
     case '/':
-        z = x / y;
         if (y == 0) {
-            System.out.println("dont do this!!!");
-        }
+            System.out.println("dont do this!!!");}
+        z = x / y;
         break;
 
     default:
