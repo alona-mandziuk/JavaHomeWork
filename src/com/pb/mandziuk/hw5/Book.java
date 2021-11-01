@@ -4,10 +4,10 @@ package com.pb.mandziuk.hw5;
  * Клас, який описує книги, наявні в бібліотеці
  */
 public class Book {
-    public int BookCounter = 0;
-    public int getBookCounter() {
-        return BookCounter;
-    }
+    //public int BookCounter = 0;
+  //  public String getBookCounter() {
+     //   return BookCounter;
+
 
     public String BookName;
     public String  BookAuthor;
@@ -17,11 +17,11 @@ public class Book {
         this.BookName = BookName;
         this.BookAuthor = BookAuthor;
         this.BookYear = BookYear;
-        BookCounter++;
+        //BookCounter++;
     }
 
     public String getBookName() {
-                return BookName;
+                        return BookName;
     }
 
     public String getBookAuthor() {
@@ -35,7 +35,7 @@ public class Book {
     }
 
     public void setBookName(String bookName) {
-        BookName = bookName;
+                BookName = bookName ;
     }
 
     public void setBookAuthor(String bookAuthor) {
@@ -45,5 +45,13 @@ public class Book {
     public void setBookYear(int bookYear) {
         BookYear = bookYear;
     }
-
+    public Book() {
+        this.BookName = " BookName ";
+        this.BookAuthor = " BookAuthor ";
+        this.BookYear = Integer.parseInt("2000");
+        //BookCounter++;
+    }
+String getInfoBook () {
+        return  BookName + BookAuthor + BookYear;
+}
 }

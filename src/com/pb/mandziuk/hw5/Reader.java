@@ -1,19 +1,17 @@
 package com.pb.mandziuk.hw5;
 
-import com.pb.mandziuk.hw5.Book;
 
 public class Reader {
-    Book b = new Book();
+    Book book = new Book();
 
     public String NameReader;
     public String BirthDate;
-    public double PhoneNumber;
-    public int Ticket;
+    public String PhoneNumber;
+    public String Ticket;
     public String Faculty;
 
-
     public String getNameReader() {
-          return NameReader;
+        return NameReader;
     }
 
     public String getBirthDate() {
@@ -21,11 +19,11 @@ public class Reader {
         return BirthDate;
     }
 
-    public double getPhoneNumber() {
+    public String getPhoneNumber() {
         return PhoneNumber;
     }
 
-    public int getTicket() {
+    public String getTicket() {
         return Ticket;
     }
 
@@ -41,11 +39,11 @@ public class Reader {
         BirthDate = birthDate;
     }
 
-    public void setPhoneNumber(double phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         PhoneNumber = phoneNumber;
     }
 
-    public void setTicket(int ticket) {
+    public void setTicket(String ticket) {
         Ticket = ticket;
     }
 
@@ -53,18 +51,40 @@ public class Reader {
         Faculty = faculty;
     }
 
-public void takeBook(Reader reader) {
-    if (Reader == null) {
-        System.out.print(NameReader + "взяв 3 книги");
+
+    public void takeBook(String NameBook, int BookCounter) {
+
+            System.out.print("\n" + NameReader + "взяв " + BookCounter);
+        }
+
+
+
+    public void takeBook(String BookName, String BookAuthor) {
+        System.out.print("\n" + NameReader + " взяв книги " + BookName + BookAuthor);
     }
 
-}
-public void takeBook() {
-            System.out.print(NameReader + " взяв книги "+ BookName);
+    public void takeBook (String BookName, String BookAuthor, int BookYear) {
+        System.out.println("\n" + getNameReader() + " взяв книги " + BookName + BookYear);
     }
 
-public void takeBook() {
-    System.out.println(NameReader + " взяв книги " + Book);
-}
 
+
+    public Reader() {
+        this.NameReader = "NameReader";
+        this.BirthDate = "10.10.1990";
+        this.Faculty = "Faculty";
+        this.PhoneNumber = "0966000000";
+        this.Ticket = "101010";
+    }
+
+    public Reader(String NameReader, String BirthDate, String Faculty, String PhoneNumber, String Ticket) {
+        this.NameReader = NameReader;
+        this.BirthDate = BirthDate;
+        this.Faculty = Faculty;
+        this.PhoneNumber = PhoneNumber;
+        this.Ticket = Ticket;
+
+
+
+    }
 }
