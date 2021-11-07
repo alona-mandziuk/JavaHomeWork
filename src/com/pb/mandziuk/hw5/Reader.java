@@ -9,6 +9,15 @@ public class Reader {
     public String PhoneNumber;
     public String Ticket;
     public String Faculty;
+public static int BookCounter = 0;
+
+    public static int getBookCounter() {
+        return BookCounter;
+    }
+
+    public static void setBookCounter(int bookCounter) {
+        BookCounter = bookCounter;
+    }
 
     public String getNameReader() {
         return NameReader;
@@ -52,22 +61,32 @@ public class Reader {
     }
 
 
-    public void takeBook(String NameBook, int BookCounter) {
+    public void takeBook(String bookName, String bookAuthor, String NameBook) {
 
-            System.out.print("\n" + NameReader + "взяв " + BookCounter);
+            System.out.print("\n" + NameReader + "взяв " + BookCounter + " книги ");
         }
 
 
 
     public void takeBook(String BookName, String BookAuthor) {
-        System.out.print("\n" + NameReader + " взяв книги " + BookName + BookAuthor);
+        System.out.print("\n" + NameReader + " взяв книги " + BookName + book.getBookAuthor());
     }
 
-    public void takeBook (String BookName, String BookAuthor, int BookYear) {
-        System.out.println("\n" + getNameReader() + " взяв книги " + BookName + BookYear);
+    public void takeBook(String bookName, String BookName, int BookYear) {
+        System.out.println("\n" + getNameReader() + " взяв книги: " + BookName + BookYear);
     }
 
+    public void  returnBook (String BookName, int BookCont) {
+        System.out.println( " \n" + getNameReader() + " повернув " + getBookCounter() + " книги ");
+    }
+public void returnBook (String BookName) {
+    System.out.println( "\n" + getNameReader() + " повернув: " + "\n" + BookName);
 
+}
+public void returnBook (String BookName, String BookAuthor, int BookYear) {
+    System.out.println("\n" + getNameReader() + "повернув книги: " + "\n" + BookName + "/" +
+            BookAuthor + BookYear);
+}
 
     public Reader() {
         this.NameReader = "NameReader";
@@ -75,6 +94,7 @@ public class Reader {
         this.Faculty = "Faculty";
         this.PhoneNumber = "0966000000";
         this.Ticket = "101010";
+
     }
 
     public Reader(String NameReader, String BirthDate, String Faculty, String PhoneNumber, String Ticket) {
@@ -83,8 +103,11 @@ public class Reader {
         this.Faculty = Faculty;
         this.PhoneNumber = PhoneNumber;
         this.Ticket = Ticket;
-
-
+        BookCounter++;
 
     }
+
+
+
+
 }

@@ -33,10 +33,17 @@ public class Library {
         }
         System.out.println("******************************");
 
-        readers[1].takeBook(books[1].getBookName(), books[1].getBookAuthor() + books[0].getBookName() + books[0].getBookAuthor());
+        readers[1].takeBook(books[1].getBookName(), books[1].getBookAuthor() + books[0].getBookName(), books[0].getBookAuthor());
 
         readers[2].takeBook(books[2].getBookName(), books[2].getBookAuthor(),books[2].getBookYear() );
+        //readers[1].takeBook(books[1].getBookName()+  Reader.getBookCounter());
 
+
+        readers[0].returnBook( Reader.getBookCounter() + " книги");
+        readers[1].returnBook(books[1].getBookName() + books[1].getBookAuthor() + books[1].getBookYear() + ", " +
+                books[0].getBookName() + books[0].getBookAuthor() + books[0].getBookYear() + Reader.getBookCounter());
+
+//readers[1].returnBook(Reader.getBookCounter(books));
         }
 
     }
