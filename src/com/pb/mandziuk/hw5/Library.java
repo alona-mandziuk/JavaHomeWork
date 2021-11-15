@@ -1,7 +1,5 @@
 package com.pb.mandziuk.hw5;
 
-import java.util.Arrays;
-
 public class Library {
     public static void main(String[] args) {
         Book b = new Book();

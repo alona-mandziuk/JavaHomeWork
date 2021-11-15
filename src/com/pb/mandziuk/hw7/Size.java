@@ -1,23 +1,29 @@
 package com.pb.mandziuk.hw7;
 
 public enum Size {
-    XXS,
-    XS,
-    S,
-    M,
-    L;
+    XXS ("Kid size", "32"),
+    XS ("Adult size", "34"),
+    S ("Adult size", "36"),
+    M ("Adult size", "38"),
+    L("Adult size", "40");
 
-    public void getDiscription (Size size) {
-       if (size == XXS) {
-           System.out.println("Дитячий розмір.");
-       } else {
-           System.out.println("Дорослий розмір.");
-       }
+    String Description;
+    String Eurosize;
 
-   }
 
-   public void getEurosize (Size size){
-        switch (size){
+
+
+/*    public void getDescription (Size size){
+        if (size == XXS) {
+            System.out.println("Kid size");
+        } else {
+            System.out.println("Adult size");
+        }
+
+    }
+
+    public void getEurosize (Size size){
+        switch (size) {
             case XXS:
                 System.out.println("32");
                 break;
@@ -35,6 +41,24 @@ public enum Size {
                 break;
         }
 
-   }
-}
+    }*/
+
+    @Override
+    public String toString() {
+        return "Size{" +
+                "Description='" + Description + '\'' +
+                ", Eurosize='" + Eurosize + '\'' +
+                '}';
+    }
+
+    Size(String Description, String Eurosize) {
+        this.Description = Description;
+    this.Eurosize = Eurosize;}
+
+
+    }
+
+
+
+
 
