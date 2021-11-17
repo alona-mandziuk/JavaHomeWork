@@ -12,51 +12,26 @@ public enum Size {
 
 
 
-
-/*    public void getDescription (Size size){
-        if (size == XXS) {
-            System.out.println("Kid size");
-        } else {
-            System.out.println("Adult size");
-        }
-
-    }
-
-    public void getEurosize (Size size){
-        switch (size) {
-            case XXS:
-                System.out.println("32");
-                break;
-            case XS:
-                System.out.println("34");
-                break;
-            case S:
-                System.out.println("36");
-                break;
-            case M:
-                System.out.println("38");
-                break;
-            case L:
-                System.out.println("40");
-                break;
-        }
-
-    }*/
-
-    @Override
-    public String toString() {
-        return "Size{" +
-                "Description='" + Description + '\'' +
-                ", Eurosize='" + Eurosize + '\'' +
-                '}';
-    }
-
     Size(String Description, String Eurosize) {
         this.Description = Description;
     this.Eurosize = Eurosize;}
 
-
+    public String getDescription() {
+        return Description;
     }
+
+    public void setDescription(String description) {
+        Description = description;
+    }
+
+    public String getEurosize() {
+        return Eurosize;
+    }
+
+    public void setEurosize(String eurosize) {
+        Eurosize = eurosize;
+    }
+}
 
 
 

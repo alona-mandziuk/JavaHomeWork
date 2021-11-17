@@ -10,20 +10,15 @@ public class Pants extends Clothes implements ManClothes, WomenClothes{
 
     @Override
     public void dressMan() {
+        System.out.println("Man wears pants: " + getInfo());
 
     }
 
     @Override
     public void dressWomen() {
+        System.out.println("Woman wears pants: " + getInfo());
 
     }
 
-    @Override
-    public String toString() {
-        return "Pants{" +
-                "size=" + size +
-                ", prise=" + prise +
-                ", colour='" + colour + '\'' +
-                '}';
-    }
+
 }

@@ -8,15 +8,9 @@ public class Skirt extends Clothes implements WomenClothes {
 
     @Override
     public void dressWomen() {
+        System.out.println("Woman wears skirt: " + getInfo());
 
     }
 
-    @Override
-    public String toString() {
-        return "Skirt{" +
-                "size=" + size +
-                ", prise=" + prise +
-                ", colour='" + colour + '\'' +
-                '}';
-    }
+
 }

@@ -8,15 +8,9 @@ public class Tie extends Clothes implements ManClothes {
 
     @Override
     public void dressMan() {
+        System.out.println("Man wears tie: " + getInfo());
 
     }
 
-    @Override
-    public String toString() {
-        return "Tie{" +
-                "size=" + size +
-                ", prise=" + prise +
-                ", colour='" + colour + '\'' +
-                '}';
-    }
+
 }
