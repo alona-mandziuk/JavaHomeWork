@@ -4,14 +4,10 @@ package com.pb.mandziuk.hw8;
 // – один по умолчанию, второй принимает сообщение и передает его в конструктор класса Exception.
 
 public class WrongPasswordException extends Exception {
-    String password;
 
-    public WrongPasswordException(String password) {
-        this.password = password;
-    }
+    public WrongPasswordException(){}
 
-    public WrongPasswordException(String message, String password) {
+    public WrongPasswordException(String message) {
         super(message);
-        this.password = password;
-    }
+          }
 }

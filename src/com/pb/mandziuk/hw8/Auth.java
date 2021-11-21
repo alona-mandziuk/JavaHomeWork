@@ -19,39 +19,42 @@ package com.pb.mandziuk.hw8;
 import java.util.regex.Pattern;
 
 public class Auth {
-String login;
-String password;
-String confirmPassword;
+public  String login;
+public String password;
+public String confirmPassword;
 
-    public Auth(String login, String password) {
-        this.login = login;
-        this.password = password;
+    public Auth() {
 
     }
 
-    public void signUp (String login,String password )
-        throws WrongLoginException, WrongPasswordException {
-    if (!Pattern.matches("[a-zA-Z_0-9] {5,20}", login)) {
-    }
+    public void signUp (String login, String password )
+                        throws WrongLoginException, WrongPasswordException {
+
+        if(Pattern.matches("[a-zA-Z0-9]{5,20}", login)){
+            System.out.println("Ok! Login! ");}
         else {
-            throw new WrongLoginException("Login is not correct. ");
-    }
-        if (!Pattern.matches("[a-zA-Z_0-9_] {5,}", password)){
+            throw new WrongLoginException("Login is not correct");}
 
-        }else {
-            throw new WrongPasswordException("Password is not correct. ");
-        }
+
+       if (Pattern.matches("[a-zA-Z0-9] {5,}", password)){
+           System.out.println("Ok! Password!");}
+       else {
+            throw new WrongPasswordException("Password is not correct");}
+
 
 }
-public void signIn (String login1, String password1) throws WrongLoginException{
+
+    public void signIn (String login1, String password1) throws WrongLoginException{
 
     if (login1.equals(login) && password1.equals(password)) {
         System.out.println("Your authorisation is successful. Welcome!");
     } else {
-        throw new WrongLoginException("Wrong login");
+        throw new WrongLoginException("Login is not correct");
+
     }
 
 }
+
 
 
 }

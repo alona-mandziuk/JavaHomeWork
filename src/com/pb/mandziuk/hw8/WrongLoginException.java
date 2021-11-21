@@ -4,15 +4,15 @@ package com.pb.mandziuk.hw8;
 // – один по умолчанию, второй принимает сообщение и передает его в конструктор класса Exception.
 
 public class WrongLoginException extends Exception {
-    String login;
 
 
-    public WrongLoginException(String login) {
-        this.login = login;
+    public WrongLoginException() {
+
     }
 
-    public WrongLoginException(String message, String login) {
+    public WrongLoginException(String message) {
         super(message);
-        this.login = login;
+
     }
+
 }
