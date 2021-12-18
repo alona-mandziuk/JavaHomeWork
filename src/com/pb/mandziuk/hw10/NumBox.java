@@ -11,14 +11,21 @@ package com.pb.mandziuk.hw10;
 //         При подсчете воспользоваться тем, что у любого из объектов подклассов
 //         Number есть методы intValue, doubleValue, floatValue и другие.
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class NumBox <T extends Number>{
    private  T[] number;
+// List <T> numbers = new List<>();
 
     public NumBox(int size) {
      number = (T[]) new Number[size];
     }
 
     void add(T num){
+////         ArrayList  <T> number = null;
+         add(num);
 
     }
 
@@ -27,19 +34,26 @@ public class NumBox <T extends Number>{
     }
 
     public int length (){
-        int i = 0;
-        for (T n: number){
-            if (n == null){
-                break;
-            }
-            i++;
-            if (i == number.length){
-                System.out.println("no space");
-                break;
-            }
-        }
-        return i;
-            }
+//        int i = 0;
+//        for (T n: number){
+//            if (n == null){
+//                break;
+//            }
+//            i++;
+//            if (i == number.length){
+//                System.out.println("no space");
+//                break;
+//            }
+//        }
+//        return i;
+//            }
+int count = 0;
+for (T n:number){
+if (n != null){
+    count++;
+} else count+=0;
+}return count;
+    }
 
     public double average(){
         double average = (sum()/length());
@@ -59,6 +73,7 @@ for (T n: number){
 
 public T max(){
     T maxx = number[0];
+
     for(int n = 0; n < number.length; n++)
         if (number[n].doubleValue() > maxx.doubleValue()) {
             maxx = number[n];

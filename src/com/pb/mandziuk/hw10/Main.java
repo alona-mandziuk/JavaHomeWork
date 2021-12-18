@@ -2,15 +2,16 @@ package com.pb.mandziuk.hw10;
 //Создать класс Main с методом main где протестировать полученный класс на примере
 //        NumBox<Float> и NumBox<Integer>.
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main (String [] args) throws Exception {
-        NumBox<java.lang.Float> floatNumBox = new NumBox<>(3);
-        try {
+        NumBox<java.lang.Float> floatNumBox = new NumBox<>(6);
+       try {
             floatNumBox.add(5.5f);
             floatNumBox.add(1.4f);
             floatNumBox.add(7.1f);
-
-        }catch (Exception e){
+                        }catch (Exception e){
             System.out.println("No space in array");
             try {
                 float float0 = floatNumBox.get(0);
@@ -18,14 +19,17 @@ public class Main {
                 float float2 = floatNumBox.get(2);
                 System.out.println(float0);
                 System.out.println(float1);
-                System.out.println(float2);
-            }finally {
+                System.out.println(float2);}
+            catch (NullPointerException e1){
+                System.out.println("Exeption");
+                            }finally {
                 System.out.println("Get array index.");
             }
         }
         System.out.println(floatNumBox.length());
         System.out.println(floatNumBox.sum());
-        System.out.println(floatNumBox.max());
+    //System.out.println(floatNumBox.max());
+      //  System.out.println(floatNumBox.);
 
 
 
