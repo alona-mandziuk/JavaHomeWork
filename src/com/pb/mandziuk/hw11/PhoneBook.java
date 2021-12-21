@@ -16,7 +16,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class PhoneBook {
+    List<PhoneContact> phoneContacts;
+//PhoneContact phoneContact = new PhoneContact();
     Scanner scanner = new Scanner(System.in);
+
     public void manipulate () throws IOException{
         System.out.println("...phoneBOOK...");
         System.out.println("Chose yor action:");
@@ -30,19 +33,19 @@ public class PhoneBook {
         switch (select){
             case "1":
                 addContact();
-                break;
+                //break;
             case "2":
                 removeContact();
-                break;
+               // break;
             case "3":
                 search();
-                break;
+               // break;
             case "4":
                 showAll();
-                break;
+               // break;
             case "5":
                 change();
-                break;
+               // break;
             case "6":
                 scanner.close();
                 break;
@@ -50,56 +53,74 @@ public class PhoneBook {
         }
     }
 
-    private void change() throws IOException {
+    public void change() throws IOException {
         System.out.println("Please enter the name of contact which you want to change: ");
         String changeC = scanner.next();
         System.out.println("Put new phone number:");
-        for (PhoneContact phoneContact: phoneContacts){
-            if (phoneContact.getName().equals(changeC)){
-                phoneContact.setPhoneNumber(changeC);
-                System.out.println("New nuber is: " + changeC);
+        if (phoneContacts != null) {
+            for (PhoneContact phoneContact : phoneContacts) {
+                if (phoneContact.getName().equals(changeC)) {
+                    phoneContact.setPhoneNumber(changeC);
+                    System.out.println("New nuber is: " + changeC);
+                }
             }
         }
     }
+    public void showAll() {
+        if (phoneContacts != null) {
+            for (PhoneContact phoneContact: phoneContacts){
+                               System.out.println(phoneContact);
 
-    private void showAll() {
-        for (PhoneContact phoneContact: phoneContacts){
-            System.out.println(phoneContactsJson);
+            }
         }
     }
-
-    private void search() {
-    }
-
-    private void removeContact() {
-        System.out.println("Please enter the name of contact to delete:");
-        String removeC = scanner.next();
+    public void search()  {
+        System.out.println("Please enter the name of contact to search:");
+        String searchC = scanner.next();
+if (phoneContacts != null){
         for (int i = 0; i<phoneContacts.size(); i++){
             PhoneContact phoneContact = phoneContacts.get(i);
-            if (phoneContact.getName().equals(removeC)){
-                phoneContacts.remove(phoneContact);
-                System.out.println("You have deleted the contact.");
-            }else {
-                continue;
+            if (phoneContact.getName().equals(searchC)){
+                System.out.println(phoneContact.getName().toString());
+            }
             }
         }
     }
 
-    private void addContact() {
+    public void removeContact() {
+        System.out.println("Please enter the name of contact to delete:");
+        String removeC = scanner.next();
+        if (phoneContacts != null) {
+            for (int i = 0; i < phoneContacts.size(); i++) {
+                PhoneContact phoneContact = phoneContacts.get(i);
+                if (phoneContact.getName().equals(removeC)) {
+                    phoneContacts.remove(phoneContact);
+                    System.out.println("You have deleted the contact.");
+                } else {
+                    continue;
+                }
+            }
+        }
+    }
+    public void addContact() {
         System.out.println("Please, enter the name:");
-        String name = scanner.next();
+        String name1 = scanner.next();
         System.out.println("Please, enter the phone number:");
-        String number = scanner.next();
-        System.out.println("Please, enter the date of birth:" );
-        LocalDate dateOfBith = LocalDate.parse(scanner.next());
+        String number1 = scanner.next();
+        System.out.println("Please, enter the date of birth: (XXXX-XX-XX) " );
+        LocalDate dateOfBith1 = LocalDate.parse(scanner.next());
         System.out.println("Please, enter the adress: ");
-        String adress = scanner.next();
-        PhoneContact phoneContact1 = new PhoneContact (name, number,dateOfBith, adress);
-        phoneContacts.add(phoneContact1);
-        System.out.println(phoneContact1.toString());
+        String adress1 = scanner.next();
+        LocalDateTime modifyTime = null;
+        PhoneContact phoneContact1 = new PhoneContact (name1, dateOfBith1,number1, adress1, modifyTime);
+        if (phoneContacts != null){
+        phoneContacts.add(phoneContact1);}
+        System.out.println(phoneContact1);
         System.out.println("The contact is saved.");
 
     }
+
+
 
     public static void main (String[] args) throws Exception {
         ObjectMapper mapper = new ObjectMapper();
@@ -112,7 +133,9 @@ public class PhoneBook {
         module.addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer());
         mapper.registerModule(module);
 
-        List<PhoneContact> phoneContacts = Arrays.asList(
+
+        PhoneBook phoneBook = new PhoneBook();
+        List<PhoneContact> phoneContacts = new ArrayList<>(Arrays.asList(
                 new PhoneContact("Alona Mandziuk",
                         LocalDate.of(1993, 4, 26),
                         "0966628899" ,
@@ -127,11 +150,11 @@ public class PhoneBook {
                         LocalDate.of(1971, 5, 3),
                         "0984511022",
                         "Soborna 33, Kamianets",
-                        LocalDateTime.now()));
+                        LocalDateTime.now())));
 
     String phoneContactsJson = mapper.writeValueAsString(phoneContacts);
-//        System.out.println(phoneContactsJson);
-//
+//    System.out.println(phoneContactsJson);
+
 //        List phoneContacts2 = mapper.readValue(phoneContactsJson, List.class);
 //        System.out.println(phoneContacts2.get(0).getClass().getName());
 //        System.out.println(phoneContacts2);
@@ -141,6 +164,6 @@ public class PhoneBook {
 //        System.out.println(phoneContacts3);
 
 
-
-    }
+phoneBook.manipulate();
+ }
 }
