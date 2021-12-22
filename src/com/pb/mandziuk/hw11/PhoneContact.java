@@ -6,16 +6,21 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class PhoneContact {
     private String name;
     private LocalDate dateOfBirth;
-    private String phoneNumber;
+    private List<String> phoneNumber;
     private String adress;
     private LocalDateTime modifyTime;
 
+    public PhoneContact(String name, LocalDate dateOfBirth, String number, String adress, LocalDateTime now) {}
+
+
     public PhoneContact(String name, LocalDate dateOfBirth,
-                        String phoneNumber, String adress, LocalDateTime modifyTime) {
+                        List<String> phoneNumber, String adress,
+                        LocalDateTime modifyTime) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.phoneNumber = phoneNumber;
@@ -24,7 +29,11 @@ public class PhoneContact {
     }
 
     public PhoneContact() {
-         }
+        
+    }
+
+    public PhoneContact(String name, List<String> numbers, LocalDate dateOfBirth, String adress) {
+    }
 
     public String getName() {
         return name;
@@ -42,11 +51,11 @@ public class PhoneContact {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public String getPhoneNumber() {
+    public List<String> getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(List<String> phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -67,13 +76,12 @@ public class PhoneContact {
     }
 
     @Override
-    public String toString() {
-        return "PhoneContact{" +
-                "name='" + name + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", adress='" + adress + '\'' +
-                ", modifyTime=" + modifyTime +
-                '}';
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }
