@@ -75,6 +75,8 @@ public class PhoneContact {
         this.modifyTime = modifyTime;
     }
 
+
+
     @Override
     public int hashCode() {
         return super.hashCode();
