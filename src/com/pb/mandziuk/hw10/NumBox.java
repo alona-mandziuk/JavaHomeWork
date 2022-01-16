@@ -11,74 +11,65 @@ package com.pb.mandziuk.hw10;
 //         При подсчете воспользоваться тем, что у любого из объектов подклассов
 //         Number есть методы intValue, doubleValue, floatValue и другие.
 
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class NumBox <T extends Number>{
    private  T[] number;
-// List <T> numbers = new List<>();
+    private int size = 0;
 
-    public NumBox(int size) {
-     number = (T[]) new Number[size];
+    public NumBox(int maxSize) {
+        if (maxSize <=0){
+            throw new IllegalArgumentException("Maximum size must be >0");
+        }
+     number = (T[]) new Number[maxSize];
     }
 
-    void add(T num){
-////         ArrayList  <T> number = null;
-         add(num);
-
+    public void add(T num){
+if (size>= number.length){
+    throw new NumBoxIsFullException("Size is " + size);
+}
+number[size]=num;
+size++;
     }
 
     public T get (int index){
+        if (index>=size){
+            return null;
+        }
         return number[index];
     }
 
     public int length (){
-//        int i = 0;
-//        for (T n: number){
-//            if (n == null){
-//                break;
-//            }
-//            i++;
-//            if (i == number.length){
-//                System.out.println("no space");
-//                break;
-//            }
-//        }
-//        return i;
-//            }
-int count = 0;
-for (T n:number){
-if (n != null){
-    count++;
-} else count+=0;
-}return count;
+        return size;
     }
 
     public double average(){
-        double average = (sum()/length());
-        return average;
+           return sum()/size;
     }
 
 public double sum (){
-        double sum = 0.0;
-for (T n: number){
-    if(n == null){
-        sum+=0;
-    } else sum+=n.doubleValue();
+       if (size<1){
+           throw new NumBoxIsEmptyException("Ii empty!");
+       }
+       double sum = 0;
+       for (int i=0; i<size; i++){
+           sum +=number[i].doubleValue();
 }
     return sum;
 }
 
 
 public T max(){
-    T maxx = number[0];
-
-    for(int n = 0; n < number.length; n++)
-        if (number[n].doubleValue() > maxx.doubleValue()) {
-            maxx = number[n];
+        if (size<1){
+            throw new NumBoxIsEmptyException("Is empty!");
         }
-    return maxx;
+        double max = number[0].doubleValue();
+        int maxIndex = 0;
+    for(int n = 1; n < size; n++) {
+        if (number[n].doubleValue() > max) {
+            max = number[n].doubleValue();
+            maxIndex = n;
+        }
+    }
+    return number[maxIndex];
 }
 }
 
